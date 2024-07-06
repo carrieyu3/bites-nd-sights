@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header nav{
+    background-color: #CCCCFF;
+    padding: 1em 0;
+    width: 100%;
+    margin: 0;
+}
+
+#header .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-title {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
