@@ -14,11 +14,46 @@
 #header .container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    margin-left: 20px;
 }
 
 .navbar-title {
     font-size: x-large;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.upload-box{
+    background-color: #CCCCFF;
+    width: 600px;
+    border: 5px;
+    border-style: solid;
+    border-color: blueviolet;
+    padding: 50px;
+    margin: 20px;
+}
+
+.upload-general{
+    margin-top: 100px;
+}
+
+.box-header{
+    margin-left: 20px;
+}
+
+.placeDescrip{
+    width: 500px;
+    height: 100px;
+}
+
+.upload-post{
+    margin-top: 10px;
+    background-color: #8D6EC7;
+    color: white;
+}
+
+.upload-post:hover{
+    margin-top: 10px;
+    background-color: #B19CD9;
+    color: white;
 }
