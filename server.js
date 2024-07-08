@@ -1,13 +1,36 @@
 const express = require('express');
-const app = express();
-const port = 3000;
+const dotenv = require('dotenv');
+const morgan = require('morgan');
+const bodyparser = require('body-parser');
+const path = require('path');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+dotenv.config({path:'config.env'});
+
+const port = process.env.PORT || 8000; 
+
+const app = express();
+
+const connectDB = require('./server/database/connection');
+
+// Mongodb connection
+connectDB();
+
+// Log request
+app.use(morgan('tiny'));
+
+// Parser request to body-parser
+app.use(bodyparser.urlencoded({ extended: true }));
+
+// load assets
+app.use('/css', express.static(path.resolve(__dirname, "assets/css")));
+app.use('/img', express.static(path.resolve(__dirname, "assets/img")));
+app.use('/js', express.static(path.resolve(__dirname, "assets/js")));
+
+//load routers
+app.use('/', require('./server/routes/routes'));
+
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
-module.exports = app;
