@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var schema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
     email:{
         type: String,
         required: true,
@@ -21,9 +21,38 @@ var schema = new mongoose.Schema({
     username:{
         type: String,
         required: true,
+    },
+    posts: {
+        type: [postSchema],
+        default: []
     }
 });
 
-const Userdb = mongoose.model('Userdb', schema);
+var postSchema = new mongoose.Schema({
+    placeName: {
+        type: String,
+        required: false
+    },
+    location: {
+        type: String,
+        required: false
+    },
+    image : {
+        type: String,
+        require: false,
+    },
+    description : {
+        type: String,
+        required: false
+    },
+    timestamp: {
+        type: Date,
+        required: false,
+        default: Date.now
+    }
+});
+
+
+const Userdb = mongoose.model('Userdb', userSchema);
 
 module.exports = Userdb;
