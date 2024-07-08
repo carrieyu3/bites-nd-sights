@@ -1,5 +1,6 @@
-const axios = require('axios');
+const express = require('express');
 const path = require('path');
+const axios = require('axios');
 
 exports.index = (req, res) => {
     const filePath = path.join(__dirname, '..', '..', 'src', 'index.html');
@@ -18,6 +19,3 @@ exports.signup = (req, res) => {
     console.log(`Serving file from: ${filePath}`);
     res.sendFile(filePath);
 }
-
-// C:\Users\micha\Documents\GitHub\Web-Development-Final-Project\src\login.html
-// C:\Users\micha\Documents\GitHub\Web-Development-Final-Project\server\services\src\login.html
