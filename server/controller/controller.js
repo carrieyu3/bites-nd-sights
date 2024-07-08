@@ -20,10 +20,19 @@ exports.create = async (req,res)=>{
     }
 
     const email = req.body.email;
+    
     // Check if user already exists
     const existingUser = await Userdb.findOne({ email });
     if (existingUser) {
-        return res.redirect('/signup?error=User already exists');
+        return res.redirect('/signup?error=Email already in use');
+    }
+
+    const username = req.body.username;
+    
+    // Check if user already exists
+    const checkUsername = await Userdb.findOne({ username });
+    if (checkUsername) {
+        return res.redirect('/signup?error=Username already exist');
     }
 
 
@@ -32,7 +41,8 @@ exports.create = async (req,res)=>{
         email : req.body.email,
         password : req.body.password,
         firstName : req.body["First-Name"],
-        lastName : req.body["Last-Name"]
+        lastName : req.body["Last-Name"],
+        username: req.body.username,
     })
 
     // save user in the database
