@@ -1,3 +1,10 @@
+/*
+body{
+    background-color: rgb(217, 218, 248);
+}
+*/
+
+/*
 * {
     padding: 0;
     margin: 0;
@@ -21,6 +28,48 @@
     font-size: x-large;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
+}
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgb(217, 218, 248);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.title{
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a{ /*specifically target links*/
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a:hover{
+    color: rgb(235, 31, 243);
 }
 
 .upload-box{
@@ -56,4 +105,8 @@
     margin-top: 10px;
     background-color: #B19CD9;
     color: white;
+}
+
+p{
+    color: blue;
 }
