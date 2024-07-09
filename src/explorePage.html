@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="title">Bites 'nd Sites</a>
 
-        <nav class="navbar">
-            <a href = "index.html" href="./index.html">Post | </a>
-            <a href = "explorePage.html">Explore | </a>
-            <a href = "logoutPage.html">Logout</a>
+    <!--navbar-->
+    <header id = "header">
+        <nav>
+            <div class="container">
+                <a href="#" class="title">Bites 'nd Sites</a>
+                
+                <div class="navbar">
+                    <a href = "index.html" href="./index.html">Post | </a>
+                    <a href = "explorePage.html">Explore | </a>
+                    <a href = "logoutPage.html">Logout</a>
+                </div>
+                
+            </div>
         </nav>
     </header>
 
+    <!--displays the output of input received from index.html-->
     <div class = "upload-general">
         <div class = "upload-box">
-            <!--displays the output-->
             <p>Name: <span id="outputName"></span></p>
             <p>Location: <span id="outputLocation"></span></p>
             <p>Image: <span id="outputImage"></span></p>
@@ -28,6 +35,5 @@
         </div>
     </div>
 
-    <script src = "/site.js"></script> <!--connects to javascript-->
 </body>
 </html>

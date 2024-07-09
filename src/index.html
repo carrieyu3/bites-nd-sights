@@ -7,17 +7,24 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-
-    <header class="header">
-        <a href="#" class="title">Bites 'nd Sites</a>
-
-        <nav class="navbar">
-            <a href = "index.html" href="./index.html">Post | </a>
-            <a href = "explorePage.html">Explore | </a>
-            <a href = "logoutPage.html">Logout</a>
+    
+    <!--navbar-->
+    <header id = "header">
+        <nav>
+            <div class="container">
+                <a href="#" class="title">Bites 'nd Sites</a>
+                
+                <div class="navbar">
+                    <a href = "index.html" href="./index.html">Post | </a>
+                    <a href = "explorePage.html">Explore | </a>
+                    <a href = "logoutPage.html">Logout</a>
+                </div>
+                
+            </div>
         </nav>
     </header>
 
+    <!--main functionality; blog-->
     <div class = "upload-general">
         <p class = "box-header">Welcome to Bites 'nd Sights. Please make a post here about any food place or attraction you'd like to blog about:</p>
         <div class = "upload-box">
@@ -26,7 +33,7 @@
             <p>Location:</p>
             <input type = "text" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
             <p>Image:</p>
-            <input type = "file" id = "image-file" required>
+            <input type = "file" class = "image-file" id = "image-file" required>
 
             <p>Please provide a brief description of your experience at this place:</p>
             <div class = "descrip-box">
@@ -36,6 +43,8 @@
             <button class = "upload-post" type = "button" onclick = "uploadPost()">UPLOAD POST</button>
         </div>
     </div>
-    
+
+    <!--<script src = "/assets/js/main.js"></script>-->
+
 </body>
 </html>
