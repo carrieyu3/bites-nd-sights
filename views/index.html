@@ -13,9 +13,25 @@
         <a href="#" class="title">Bites 'nd Sites</a>
 
         <nav class="navbar">
-            <a href="/index">Post | </a>
-            <a href = "/explore">Explore | </a>
-            <a href = "logoutPage.html">Logout</a>
+            <form action="/api/index" method="get">
+                <input type="hidden" name="encryptedEmail" id="encryptedEmailexe" value="">
+                <input type="hidden" name="k" id="kexe" value="">
+
+                <button class="button" type="submit">Post | </button>
+            </form>
+
+            <form action="/api/explore" method="get">
+                <input type="hidden" name="encryptedEmailex" id="encryptedEmailex" value="">
+                <input type="hidden" name="kex" id="kex" value="">
+
+                <button class="button" type="submit">Explore | </button>
+            </form>
+            <form action="" method="get">
+                <input type="hidden" name="encryptedEmailex" id="encryptedEmail" value="">
+                <input type="hidden" name="kex" id="k" value="">
+
+                <a href="/">Logout</a>
+            </form>
         </nav>
     </header>
 
@@ -34,14 +50,13 @@
                 <div class = "descrip-box">
                     <input type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required>
                 </div>
-                <input type="hidden" name="encryptedEmail" id="encryptedEmail" value="">
-                <input type="hidden" name="k" id="k" value="">
-    
+                
                 <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
+                <input type="text" name="encryptedEmail" id="encryptedEmail" value="">
+                <input type="text" name="k" id="k" value="">
             </div>
         </form>
     </div>
     
 </body>
 </html>
-login@example.com

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/explore.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="title">Bites 'nd Sites</a>
+
+        <nav class="navbar">
+            <form action="/api/index" method="get">
+                <input type="hidden" name="encryptedEmail" id="encryptedEmailexe" value="">
+                <input type="hidden" name="k" id="kexe" value="">
+
+                <button class="button" type="submit">Post | </button>
+            </form>
+
+            <form action="/api/explore" method="get">
+                <input type="hidden" name="encryptedEmailex" id="encryptedEmailex" value="">
+                <input type="hidden" name="kex" id="kex" value="">
+
+                <button class="button" type="submit">Explore | </button>
+            </form>
+
+            <form action="" method="get">
+                <input type="hidden" name="encryptedEmailex" id="encryptedEmail" value="">
+                <input type="hidden" name="kex" id="k" value="">
+
+            </form>
+            
+            <a href="/">Logout</a>
+            
+        </nav>
+    </header>
+
+    <div class = "upload-general">
+        <% posts.forEach(post => { %>
+        <div class = "upload-box">
+            <!--displays the output-->
+            <p>Name: <span id="outputName"><%= post.placeName %></span></p>
+            <p>Location: <span id="outputLocation"><%= post.placeLocation %></span></p>
+            <p>Image: <span id="outputImage"><img src="/image/<%= post.image %>" alt="Image for <%= post.placeName %>"></span></p>
+            <p>Description: <span id="outputDescrip"><%= post.description %></span></p>
+        </div>
+        <% }); %>
+        
+    </div>
+
+
+    
+</body>
+</html>

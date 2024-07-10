@@ -1,6 +1,7 @@
 var Userdb = require('../model/model');
 const multer = require('multer');
 const { GridFSBucket } = require('mongodb');
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 
@@ -173,3 +174,48 @@ exports.uploadpost = [
 ];
 
 
+exports.index = (req,res)=>
+{
+
+    const encryptedEmail = req.query.encryptedEmail;
+    const key = req.query.k;
+
+    console.log("Encrypted Email:", encryptedEmail);
+    console.log("Key:", key);
+
+    if (!encryptedEmail || !key) {
+        return res.status(400).send("Missing encrypted email or key");
+    }
+
+    res.redirect(`/index?encryptedEmail=${encryptedEmail}&_k_=${key}`);
+}
+
+exports.explore = (req,res)=>
+{
+
+    const encryptedEmails = req.query.encryptedEmailex;
+    const key = req.query.kex;
+
+    console.log("encryptedEmailsddd");
+    console.log(encryptedEmails);
+    console.log("Key:");
+    console.log(key);
+
+    res.redirect(`/explore?encryptedEmail=${encryptedEmails}&_k_=${key}`);
+}
+
+exports.getImage = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const bucket = new GridFSBucket(mongoose.connection.db, { bucketName: 'images' });
+
+        const downloadStream = bucket.openDownloadStream(ObjectId(id));
+        downloadStream.on('error', () => {
+            res.status(404).send('Image not found');
+        });
+        downloadStream.pipe(res);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error retrieving image');
+    }
+};
