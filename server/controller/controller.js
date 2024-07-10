@@ -152,6 +152,7 @@ exports.uploadpost = [
                         placeLocation,
                         image: fileId.toString(),
                         description,
+                        timestamp: new Date()
                     };
                     user.posts.push(newPost);
                     await user.save();
@@ -166,8 +167,6 @@ exports.uploadpost = [
         }
     }
 ];
-
-// exports.getAllPosts = getAllPosts;
 
 
 //upload.single('image'), async
@@ -269,8 +268,9 @@ async function getAllPosts() {
             });
         });
 
-        // Sort posts by createdAt in descending order (newest first)
-        allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        // Sort posts by timestamp in descending order (oldest first)
+        allPosts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
 
         return allPosts;
     } catch (error) {
@@ -278,8 +278,6 @@ async function getAllPosts() {
         throw error;
     }
 }
-
-
 
 exports.getAllPosts = getAllPosts;
 
