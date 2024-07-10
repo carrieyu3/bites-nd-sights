@@ -44,7 +44,7 @@
             <!--displays the output-->
             <p>Name: <span id="outputName"><%= post.placeName %></span></p>
             <p>Location: <span id="outputLocation"><%= post.placeLocation %></span></p>
-            <p>Image: <span id="outputImage"><img src="/image/<%= post.image %>" alt="Image for <%= post.placeName %>"></span></p>
+            <p>Image: <span id="outputImage"><img src="/api/images/<%= post.image %>" alt="Image from <%= post.placeName %>"></span></p>
             <p>Description: <span id="outputDescrip"><%= post.description %></span></p>
         </div>
         <% }); %>

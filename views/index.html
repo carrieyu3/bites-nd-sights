@@ -37,23 +37,25 @@
 
     <div class = "upload-general">
         <p class = "box-header">Welcome to Bites 'nd Sights. Please make a post here about any food place or attraction you'd like to blog about:</p>
-        <form action="/api/uploadpost" method="post" id="uploadForm">
+        <form action="/api/uploadpost" method="post" id="uploadForm" enctype="multipart/form-data">
             <div class = "upload-box">
                 <p>Name of Place:</p>
                 <input type = "text" name="placeName" id = "placeName" placeholder = "e.g. MCD" required>
                 <p>Location:</p>
                 <input type = "text" name="placeLocation" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
                 <p>Image:</p>
-                <input type = "file" name="picture" id = "image-file" required>
+                <!-- <input type = "file" name="picture" id = "image-file" required> -->
+                <input type="file" id="image-file" name="image" required>
     
                 <p>Please provide a brief description of your experience at this place:</p>
                 <div class = "descrip-box">
                     <input type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required>
                 </div>
+                <input type="hidden" name="encryptedEmail" id="encryptedEmailhidden" value="">
+                <input type="hidden" name="k" id="khidden" value="">
                 
                 <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
-                <input type="text" name="encryptedEmail" id="encryptedEmail" value="">
-                <input type="text" name="k" id="k" value="">
+
             </div>
         </form>
     </div>
