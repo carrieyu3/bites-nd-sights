@@ -39,7 +39,7 @@ var postSchema = new mongoose.Schema({
     },
     image : {
         type: String,
-        require: false,
+        required: false,
     },
     description : {
         type: String,
@@ -47,7 +47,7 @@ var postSchema = new mongoose.Schema({
     },
     timestamp: {
         type: Date,
-        required: false,
+        required: true,
         default: Date.now
     }
 });

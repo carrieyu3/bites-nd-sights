@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bites 'nd Sights</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="/assets/css/main.css"> -->
+    <link rel="stylesheet" href="css/main.css">
+    <script src = "/js/main.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <a class="title">
+            Bites 'nd Sites
+            <i class="fa-solid fa-burger"></i>
+            <i class="fa-solid fa-city"></i>
+        </a>
+
+        <nav class="navbar">
+            <div id="button-box">
+                <form action="/api/index" method="get">
+                    <input type="hidden" name="encryptedEmail" id="encryptedEmailexe" value="">
+                    <input type="hidden" name="k" id="kexe" value="">
+    
+                    <button class="button" type="submit">Post | </button>
+                </form>
+    
+                <form action="/api/explore" method="get">
+                    <input type="hidden" name="encryptedEmailex" id="encryptedEmailex" value="">
+                    <input type="hidden" name="kex" id="kex" value="">
+    
+                    <button class="button" type="submit">Explore | </button>
+                </form>
+                
+                <a href="/">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <!--main functionality; blog-->
+    <div class = "upload-general">
+        <p class = "box-header">Welcome to Bites 'nd Sights. Please make a post here about any food place or attraction you'd like to blog about:</p>
+        <form action="/api/uploadpost" method="post" id="uploadForm" enctype="multipart/form-data">
+            <div class = "upload-box">
+                <p>Name of Place:</p>
+                <input type = "text" name="placeName" id = "placeName" placeholder = "e.g. MCD" required>
+                <p>Location:</p>
+                <input type = "text" name="placeLocation" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
+                <p>Image:</p>
+                <!-- <input type = "file" name="picture" id = "image-file" required> -->
+                <input type="file" id="image-file" name="image" required>
+    
+                <p>Please provide a brief description of your experience at this place:</p>
+                <div class = "descrip-box">
+                    <input type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required>
+                </div>
+                <input type="hidden" name="encryptedEmail" id="encryptedEmailhidden" value="">
+                <input type="hidden" name="k" id="khidden" value="">
+                
+                <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
+
+            </div>
+        </form>
+    </div>
+
+    <!--<script src = "/assets/js/main.js"></script>-->
+
+</body>
+</html>

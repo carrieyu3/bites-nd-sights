@@ -14,6 +14,9 @@ route.get('/explore', render.explore);
 route.post('/api/users', controller.create);
 route.post('/api/login', controller.login);
 route.post('/api/uploadpost', controller.uploadpost);
+route.get('/api/explore', controller.explore);
+route.get('/api/index', controller.index);
+route.get('/api/images/:id', controller.getImage); // This will serve images
 
 
 module.exports = route;

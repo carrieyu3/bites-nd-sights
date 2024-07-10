@@ -86,3 +86,19 @@ body{
     text-align: center;
     margin-top: 350px;
 }
+
+
+#button-box
+{
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.button
+{
+    height: 100%;
+    background-color: inherit;
+    border: none;
+}
