@@ -4,44 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bites 'nd Sights</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-
-    <header class="header">
-        <a href="#" class="title">Bites 'nd Sites</a>
-
-        <nav class="navbar">
-            <a href="/index">Post | </a>
-            <a href = "/explore">Explore | </a>
-            <a href = "logoutPage.html">Logout</a>
+    
+    <!--navbar-->
+    <header id = "header">
+        <nav>
+            <div class="navbar">
+                <a href="#" class="title">
+                    Bites 'nd Sites
+                    <i class="fa-solid fa-burger"></i>
+                    <i class="fa-solid fa-city"></i>
+                </a>
+                
+                <div class="navLinks">
+                    <a href = "index.html" href="./index.html">Post | </a>
+                    <a href = "explorePage.html">Explore | </a>
+                    <a href = "logoutPage.html">Logout</a>
+                </div>
+                
+            </div>
         </nav>
     </header>
 
+    <!--main functionality; blog-->
     <div class = "upload-general">
         <p class = "box-header">Welcome to Bites 'nd Sights. Please make a post here about any food place or attraction you'd like to blog about:</p>
-        <form action="/api/uploadpost" method="post" id="uploadForm">
-            <div class = "upload-box">
-                <p>Name of Place:</p>
-                <input type = "text" name="placeName" id = "placeName" placeholder = "e.g. MCD" required>
-                <p>Location:</p>
-                <input type = "text" name="placeLocation" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
-                <p>Image:</p>
-                <input type = "file" name="picture" id = "image-file" required>
-    
-                <p>Please provide a brief description of your experience at this place:</p>
-                <div class = "descrip-box">
-                    <input type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required>
-                </div>
-                <input type="hidden" name="encryptedEmail" id="encryptedEmail" value="">
-                <input type="hidden" name="k" id="k" value="">
-    
-                <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
+        <div class = "upload-box">
+            <p>Name of Place:</p>
+            <input type = "text" id = "placeName" placeholder = "e.g. MCD" required>
+            <p>Location:</p>
+            <input type = "text" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
+            <p>Image:</p>
+            <input type = "file" class = "image-file" id = "image-file" required>
+
+            <p>Please provide a brief description of your experience at this place:</p>
+            <div class = "descrip-box">
+                <input type = "text" class = "placeDescrip" id = "placeDescrip" required>
             </div>
         </form>
     </div>
-    
+
+    <!--<script src = "/assets/js/main.js"></script>-->
+
 </body>
 </html>
-login@example.com
