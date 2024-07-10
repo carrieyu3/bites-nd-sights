@@ -48,6 +48,11 @@ body{
     border-color: blueviolet;
     padding: 50px;
     margin: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.upload-box:hover{
+    background-color: #B19CD9;
+    transform: scale(1.05);
 }
 
 .upload-general{
