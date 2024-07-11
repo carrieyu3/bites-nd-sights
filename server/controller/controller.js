@@ -4,6 +4,7 @@ const { GridFSBucket } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
 
 // Configure multer for memory storage
 const storages = multer.memoryStorage();
@@ -93,31 +94,47 @@ exports.create = async (req,res)=>{
     
 }
 
-exports.login = (req,res)=>{
+exports.login = async (req, res) => {
+    const { email, password } = req.body;
 
-    if(!req.body.email){
-        return res.redirect('/?error=Content can not be empty!');
-
-    }
-
-    if (!req.body.password)
-    {
+    // Check if email and password are provided
+    if (!email || !password) {
         return res.redirect('/?error=Content can not be empty!');
     }
 
-    // validate request
-    const email = req.body.email;
-    const Erand = encrypt(email);
-    const pass = req.body.password;
-    Userdb.find({email: email, password: pass})
-        .then(user => 
-        {
-            res.redirect(`/index?encryptedEmail=${Erand.encryptedData}&_k_=${Erand.iv}`);
-        })
-        .catch(err => {
-            res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
-        })
-}
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.redirect('/?error=Invalid email format!');
+    }
+
+    try {
+        // Find user by email
+        const user = await Userdb.findOne({ email });
+
+        if (!user) {
+            return res.redirect('/?error=Invalid email or password');
+        }
+
+        console.log(password);
+        console.log(user.password);
+
+        // Check if password matches
+        const isMatch = password == user.password;
+        if (!isMatch) {
+            return res.redirect('/?error=Invalid email or password!');
+        }
+
+        // Encrypt the email
+        const Erand = encrypt(email);
+
+        // Redirect with encrypted email and iv
+        res.redirect(`/index?encryptedEmail=${Erand.encryptedData}&_k_=${Erand.iv}`);
+    } catch (err) {
+        res.status(500).send({ message: err.message || "An error occurred while logging in" });
+    }
+};
+
 
 exports.uploadpost = [
     upload.single('image'), // Apply multer middleware
