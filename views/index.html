@@ -21,48 +21,62 @@
 
         <nav class="navbar">
             <div id="button-box">
-                <form action="/api/index" method="get">
+                <form action="/api/index" class="style-form" method="get">
                     <input type="hidden" name="encryptedEmail" id="encryptedEmailexe" value="">
                     <input type="hidden" name="k" id="kexe" value="">
     
-                    <button class="button" type="submit">Post | </button>
+                    <button class="buttons" type="submit"><p class="button-title">Post | </p></button>
                 </form>
     
                 <form action="/api/explore" method="get">
                     <input type="hidden" name="encryptedEmailex" id="encryptedEmailex" value="">
                     <input type="hidden" name="kex" id="kex" value="">
     
-                    <button class="button" type="submit">Explore | </button>
+                    <button class="buttons" type="submit"><p class="button-title">Explore |</p> </button>
                 </form>
                 
-                <a href="/">Logout</a>
+                <a class="button" id="a-tag" href="/">Logout</a>
             </div>
         </nav>
     </header>
     <!--main functionality; blog-->
-    <div class = "upload-general">
-        <p class = "box-header">Welcome to Bites 'nd Sights. Please make a post here about any food place or attraction you'd like to blog about:</p>
-        <form action="/api/uploadpost" method="post" id="uploadForm" enctype="multipart/form-data">
-            <div class = "upload-box">
-                <p>Name of Place:</p>
-                <input type = "text" name="placeName" id = "placeName" placeholder = "e.g. MCD" required>
-                <p>Location:</p>
-                <input type = "text" name="placeLocation" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
-                <p>Image:</p>
-                <!-- <input type = "file" name="picture" id = "image-file" required> -->
-                <input type="file" id="image-file" name="image" required>
-    
-                <p>Please provide a brief description of your experience at this place:</p>
-                <div class = "descrip-box">
-                    <input type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required>
-                </div>
-                <input type="hidden" name="encryptedEmail" id="encryptedEmailhidden" value="">
-                <input type="hidden" name="k" id="khidden" value="">
-                
-                <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
+    <div id="container">
+        <h1 class = "main-header">Welcome to Bites 'nd Sights!</h1><br>
+        <div class = "upload-general">
+            
+            <h3 class="box-header">Please make a post here about any food place or attraction you'd like to blog about:</h3>
+            
+            <br>
+            <form action="/api/uploadpost" method="post" id="uploadForm" enctype="multipart/form-data">
+                <div class = "upload-box">
+                    <div>
+                        <p class="input-titles">Name of Place:</p>
+                        <input type = "text" name="placeName" id = "placeName" placeholder = "e.g. MCD" required>
+                    </div>
+                    
+                    <div>
+                        <p class="input-titles">Location:</p>
+                        <input type = "text" name="placeLocation" id = "placeLocation" placeholder = " e.g. 'borough, city' " required>
+                    </div>
+                    <div>
+                        <p class="input-titles">Image:</p>
+                    
+                        <input type="file" id="image-file" name="image" required>
+                    </div>
+        
+                    <div>
+                        <p class="input-titles">Please provide a brief description of your experience at this place:</p>
 
-            </div>
-        </form>
+                        <textarea  type = "text" name="description" class = "placeDescrip" id = "placeDescrip" required></textarea>
+                    </div>
+                    <input type="hidden" name="encryptedEmail" id="encryptedEmailhidden" value="">
+                    <input type="hidden" name="k" id="khidden" value="">
+                    
+                    <button class = "upload-post" type = "sumbit">UPLOAD POST</button>
+    
+                </div>
+            </form>
+        </div>
     </div>
 
     <!--<script src = "/assets/js/main.js"></script>-->

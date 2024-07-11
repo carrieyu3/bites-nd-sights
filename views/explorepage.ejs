@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="/assets/css/main.css"> -->
     <link rel="stylesheet" href="css/main.css">
@@ -24,32 +29,34 @@
                     <input type="hidden" name="encryptedEmail" id="encryptedEmailexe" value="">
                     <input type="hidden" name="k" id="kexe" value="">
 
-                    <button class="button" type="submit">Post | </button>
+                    <button class="buttons" type="submit"><p class="button-title">Post | </p></button>
                 </form>
 
                 <form action="/api/explore" method="get">
                     <input type="hidden" name="encryptedEmailex" id="encryptedEmailex" value="">
                     <input type="hidden" name="kex" id="kex" value="">
 
-                    <button class="button" type="submit">Explore | </button>
+                    <button class="buttons" type="submit"><p class="button-title">Explore |</p> </button>
                 </form>
                 
-                <a href="/">Logout</a>
+                <a class="button" id="a-tag" href="/">Logout</a>
 
             </div>
             
         </nav>
     </header>
 
-    <div class = "upload-general">
+    <h1 id="post-heading-title">Posts</h1>
+
+    <div class="upload-general2">
         <% posts.forEach(post => { %>
-            <div class = "upload-box">
+            <div class = "upload-box2">
                 <!--displays the output-->
-                <p>Name: <span id="outputName"><%= post.placeName %></span></p>
-                <p>Location: <span id="outputLocation"><%= post.placeLocation %></span></p>
-                <p>Image: <span id="outputImage"><img src="/api/images/<%= post.image %>" alt="Image from <%= post.placeName %>"></span></p>
-                <p>Description: <span id="outputDescrip"><%= post.description %></span></p>
-                <p>Date: <%= new Date(post.timestamp).toLocaleDateString() %></p>
+                <p class="post-titles">Name: <span id="outputName"><%= post.placeName %></span></p>
+                <p class="post-titles">Location: <span id="outputLocation"><%= post.placeLocation %></span></p>
+                <p class="post-titles">Description: <span id="outputDescrip"><%= post.description %></span></p>
+                <p class="post-titles">Date: <%= new Date(post.timestamp).toLocaleDateString() %></p>
+                <p class="post-titles"><div id="outputImage"><img id="image" src="/api/images/<%= post.image %>" alt="Image from <%= post.placeName %>"></div></p>
             </div>
         <% }); %>
         
